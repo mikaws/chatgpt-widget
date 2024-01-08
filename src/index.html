@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="reset.css" />
+  <script type="module" src="main.ts" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat GPT</title>
+  <style>
+    .logo.vanilla:hover {
+      filter: drop-shadow(0 0 2em #ffe21c);
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- ChatGPT logo button -->
+    <div id="chatgpt-logo" class="logo">
+      <a title="OpenAI, Public domain, via Wikimedia Commons" href="#">
+        <img width="32" alt="ChatGPT logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/64px-ChatGPT_logo.svg.png">
+      </a>
+    </div>
+    <!-- Chats container -->
+    <div id="chat" class="chat-container">
+      <form id="chat-form">
+        <div class="prompt" style="display: none">
+          <textarea id="prompt-textarea" spellcheck="false" placeholder="Enter a prompt here" required></textarea>
+          <button class="transition-colors" type="submit">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" stroke-width="2">
+              <path
+                d="M.5 1.163A1 1 0 0 1 1.97.28l12.868 6.837a1 1 0 0 1 0 1.766L1.969 15.72A1 1 0 0 1 .5 14.836V10.33a1 1 0 0 1 .816-.983L8.5 8 1.316 6.653A1 1 0 0 1 .5 5.67V1.163Z"
+                fill="currentColor">
+              </path>
+            </svg>
+          </button>
+        </div>
+        <div hidden class="dragger" data-tauri-drag-region></div>
+      </form>
+      <div hidden id="messages" class="messages-container"></div>
+    </div>
+  </main>
+</body>
+
+</html>
