@@ -62,15 +62,9 @@ async function listenFormSubmit() {
     // await changeChatHeight();
     const chatResData = await fetchChatCompletion(textarea.value);
     addMessageInChat("assistant", chatResData.content);
-    await changeChatHeight();
+    await adjustWindowSize();
     textarea.value = "";
   });
-}
-
-async function changeChatHeight() {
-  const chat = document.getElementById("chat") as HTMLDivElement;
-  chat.style.height = "100%";
-  await adjustWindowSize();
 }
 
 function showMessagesContainer() {
@@ -92,7 +86,7 @@ async function fetchChatCompletion(content: string) {
   getChatId();
   return {
     chatId: "uuid",
-    content: "Why the sky is blue?",
+    content: "Test response",
     userId: "uuid",
   };
 }
@@ -141,8 +135,11 @@ function listenExitButton() {
 }
 
 function getUIHeight(): number {
-  const main = document.querySelector("main") as HTMLDivElement;
-  return main.scrollHeight;
+  const prompt = document.querySelector(".prompt") as HTMLDivElement;
+  const messages = document.querySelector(
+    ".messages-container"
+  ) as HTMLDivElement;
+  return prompt.scrollHeight + messages.scrollHeight
 }
 
 async function adjustWindowSize() {
