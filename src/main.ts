@@ -97,14 +97,7 @@ function getChatId() {}
 
 async function listenLogo() {
   const logo = document.getElementById("chatgpt-logo") as HTMLElement;
-  enableDragging(logo);
   await openChat(logo);
-}
-
-function enableDragging(element: HTMLElement) {
-  element.addEventListener("mousedown", async () => {
-    await appWindow.startDragging();
-  });
 }
 
 async function openChat(element: HTMLElement) {
